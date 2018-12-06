@@ -20,14 +20,28 @@ namespace TomKox_Cinemax
         private void FrmKassa_Load(object sender, EventArgs e)
         {
             // Films toevoegen
-            lboxSelectieLijst.Items.Add("Divergent");
-            lboxSelectieLijst.Items.Add("First Man");
-            lboxSelectieLijst.Items.Add("Godzilla");
+            AddFilm("Divergent");
+            AddFilm("First Man");
+            AddFilm("Godzilla");
         }
 
         private void btnFilmToevoegen_Click(object sender, EventArgs e)
         {
+            AddFilm(txtFilmToevoegen.Text);
+        }
 
+        private void AddFilm(string film)
+        {
+            // Onnodige spaties verwijderen
+            film = film.Trim();
+
+            // Controle op lege strings
+            if (film == string.Empty) return;
+
+            // Enkel nieuwe films toevoegen
+            if(!lboxSelectieLijst.Items.Contains(film)) { 
+                lboxSelectieLijst.Items.Add(film);
+            }
         }
     }
 }
