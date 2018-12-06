@@ -118,6 +118,7 @@
             this.btnVerwerken.TabIndex = 9;
             this.btnVerwerken.Text = "Verwerken";
             this.btnVerwerken.UseVisualStyleBackColor = true;
+            this.btnVerwerken.Click += new System.EventHandler(this.btnVerwerken_Click);
             // 
             // cbxKorting
             // 
@@ -128,6 +129,7 @@
             this.cbxKorting.TabIndex = 10;
             this.cbxKorting.Text = "Korting";
             this.cbxKorting.UseVisualStyleBackColor = true;
+            this.cbxKorting.CheckedChanged += new System.EventHandler(this.cbxKorting_CheckedChanged);
             // 
             // lblVolwassenen
             // 
@@ -169,8 +171,10 @@
             // 
             this.txtPrijs.Location = new System.Drawing.Point(477, 272);
             this.txtPrijs.Name = "txtPrijs";
+            this.txtPrijs.ReadOnly = true;
             this.txtPrijs.Size = new System.Drawing.Size(100, 20);
             this.txtPrijs.TabIndex = 16;
+            this.txtPrijs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // numKinderen
             // 
@@ -179,6 +183,7 @@
             this.numKinderen.Size = new System.Drawing.Size(75, 20);
             this.numKinderen.TabIndex = 17;
             this.numKinderen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numKinderen.ValueChanged += new System.EventHandler(this.numKinderen_ValueChanged);
             // 
             // numVolwassenen
             // 
@@ -187,6 +192,7 @@
             this.numVolwassenen.Size = new System.Drawing.Size(75, 20);
             this.numVolwassenen.TabIndex = 18;
             this.numVolwassenen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numVolwassenen.ValueChanged += new System.EventHandler(this.numVolwassenen_ValueChanged);
             // 
             // FrmKassa
             // 

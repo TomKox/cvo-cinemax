@@ -12,6 +12,8 @@ namespace TomKox_Cinemax
 {
     public partial class FrmKassa : Form
     {
+        private decimal prijsVolwassen, prijsKind, korting;
+
         public FrmKassa()
         {
             InitializeComponent();
@@ -23,6 +25,11 @@ namespace TomKox_Cinemax
             AddFilm("Divergent");
             AddFilm("First Man");
             AddFilm("Godzilla");
+
+            //Standaardprijzen en korting instellen
+            prijsVolwassen = 9M;
+            prijsKind = 7.50M;
+            korting = 1M;
         }
 
         private void btnFilmToevoegen_Click(object sender, EventArgs e)
@@ -57,6 +64,48 @@ namespace TomKox_Cinemax
         private void lboxSelectieLijst_SelectedValueChanged(object sender, EventArgs e)
         {
             txtFilm.Text = lboxSelectieLijst.Text;
+        }
+
+        private void numVolwassenen_ValueChanged(object sender, EventArgs e)
+        {
+            UpdatePrijs();
+        }
+
+        private void numKinderen_ValueChanged(object sender, EventArgs e)
+        {
+            UpdatePrijs();
+        }
+
+        private void cbxKorting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePrijs();
+        }
+
+        private void btnVerwerken_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdatePrijs()
+        {
+            decimal totaal;
+            int aantalVolwassenen = Convert.ToInt32(numVolwassenen.Value);
+            int aantalKinderen = Convert.ToInt32(numKinderen.Value);
+
+            // Totaal berekenen
+            totaal = aantalKinderen * prijsKind + aantalVolwassenen * prijsVolwassen;
+
+            // Korting toepassing indien nodig
+            if(cbxKorting.Checked)
+            {
+                totaal -= korting;
+            }
+
+            // Geldbedrag afronden op 2 decimalen
+            Math.Round(totaal, 2);
+
+            // Tekstveld Prijs updaten
+            txtPrijs.Text = "€ "+ totaal.ToString();
         }
     }
 }
