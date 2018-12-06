@@ -88,6 +88,7 @@
             // 
             this.txtFilm.Location = new System.Drawing.Point(326, 64);
             this.txtFilm.Name = "txtFilm";
+            this.txtFilm.ReadOnly = true;
             this.txtFilm.Size = new System.Drawing.Size(251, 20);
             this.txtFilm.TabIndex = 4;
             // 
