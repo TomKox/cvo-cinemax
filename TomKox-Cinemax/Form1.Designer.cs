@@ -80,6 +80,7 @@
             this.btnFilmToevoegen.TabIndex = 3;
             this.btnFilmToevoegen.Text = "Toevoegen";
             this.btnFilmToevoegen.UseVisualStyleBackColor = true;
+            this.btnFilmToevoegen.Click += new System.EventHandler(this.btnFilmToevoegen_Click);
             // 
             // txtFilm
             // 
@@ -205,6 +206,7 @@
             this.Controls.Add(this.lboxSelectieLijst);
             this.Name = "FrmKassa";
             this.Text = "Cinemax Kassa";
+            this.Load += new System.EventHandler(this.FrmKassa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numKinderen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numVolwassenen)).EndInit();
             this.ResumeLayout(false);

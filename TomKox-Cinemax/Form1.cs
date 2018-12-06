@@ -16,5 +16,18 @@ namespace TomKox_Cinemax
         {
             InitializeComponent();
         }
+
+        private void FrmKassa_Load(object sender, EventArgs e)
+        {
+            // Films toevoegen
+            lboxSelectieLijst.Items.Add("Divergent");
+            lboxSelectieLijst.Items.Add("First Man");
+            lboxSelectieLijst.Items.Add("Godzilla");
+        }
+
+        private void btnFilmToevoegen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
