@@ -62,6 +62,7 @@
             this.txtFilmToevoegen.Name = "txtFilmToevoegen";
             this.txtFilmToevoegen.Size = new System.Drawing.Size(158, 20);
             this.txtFilmToevoegen.TabIndex = 1;
+            this.txtFilmToevoegen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFilmToevoegen_KeyUp);
             // 
             // lblFilmToevoegen
             // 
