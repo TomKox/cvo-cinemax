@@ -174,17 +174,19 @@
             // 
             // numKinderen
             // 
-            this.numKinderen.Location = new System.Drawing.Point(457, 172);
+            this.numKinderen.Location = new System.Drawing.Point(502, 172);
             this.numKinderen.Name = "numKinderen";
-            this.numKinderen.Size = new System.Drawing.Size(120, 20);
+            this.numKinderen.Size = new System.Drawing.Size(75, 20);
             this.numKinderen.TabIndex = 17;
+            this.numKinderen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // numVolwassenen
             // 
-            this.numVolwassenen.Location = new System.Drawing.Point(457, 146);
+            this.numVolwassenen.Location = new System.Drawing.Point(502, 146);
             this.numVolwassenen.Name = "numVolwassenen";
-            this.numVolwassenen.Size = new System.Drawing.Size(120, 20);
+            this.numVolwassenen.Size = new System.Drawing.Size(75, 20);
             this.numVolwassenen.TabIndex = 18;
+            this.numVolwassenen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FrmKassa
             // 
