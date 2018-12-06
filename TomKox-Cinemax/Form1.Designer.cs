@@ -28,172 +28,185 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lboxSelectieLijst = new System.Windows.Forms.ListBox();
+            this.txtFilmToevoegen = new System.Windows.Forms.TextBox();
+            this.lblFilmToevoegen = new System.Windows.Forms.Label();
+            this.btnFilmToevoegen = new System.Windows.Forms.Button();
+            this.txtFilm = new System.Windows.Forms.TextBox();
+            this.lblFilm = new System.Windows.Forms.Label();
+            this.btnAfsluiten = new System.Windows.Forms.Button();
+            this.btnVerwerken = new System.Windows.Forms.Button();
+            this.cbxKorting = new System.Windows.Forms.CheckBox();
+            this.lblVolwassenen = new System.Windows.Forms.Label();
+            this.lblKinderen = new System.Windows.Forms.Label();
+            this.lblTotalePrijs = new System.Windows.Forms.Label();
+            this.lblCinemax = new System.Windows.Forms.Label();
+            this.txtPrijs = new System.Windows.Forms.TextBox();
+            this.numKinderen = new System.Windows.Forms.NumericUpDown();
+            this.numVolwassenen = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numKinderen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVolwassenen)).BeginInit();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lboxSelectieLijst
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 64);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(246, 264);
-            this.listBox1.TabIndex = 0;
+            this.lboxSelectieLijst.FormattingEnabled = true;
+            this.lboxSelectieLijst.Location = new System.Drawing.Point(12, 64);
+            this.lboxSelectieLijst.Name = "lboxSelectieLijst";
+            this.lboxSelectieLijst.Size = new System.Drawing.Size(246, 264);
+            this.lboxSelectieLijst.TabIndex = 0;
             // 
-            // textBox1
+            // txtFilmToevoegen
             // 
-            this.textBox1.Location = new System.Drawing.Point(80, 344);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtFilmToevoegen.Location = new System.Drawing.Point(100, 344);
+            this.txtFilmToevoegen.Name = "txtFilmToevoegen";
+            this.txtFilmToevoegen.Size = new System.Drawing.Size(158, 20);
+            this.txtFilmToevoegen.TabIndex = 1;
             // 
-            // label1
+            // lblFilmToevoegen
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 347);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.lblFilmToevoegen.AutoSize = true;
+            this.lblFilmToevoegen.Location = new System.Drawing.Point(12, 347);
+            this.lblFilmToevoegen.Name = "lblFilmToevoegen";
+            this.lblFilmToevoegen.Size = new System.Drawing.Size(82, 13);
+            this.lblFilmToevoegen.TabIndex = 2;
+            this.lblFilmToevoegen.Text = "Film toevoegen:";
             // 
-            // button1
+            // btnFilmToevoegen
             // 
-            this.button1.Location = new System.Drawing.Point(183, 370);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnFilmToevoegen.Location = new System.Drawing.Point(183, 370);
+            this.btnFilmToevoegen.Name = "btnFilmToevoegen";
+            this.btnFilmToevoegen.Size = new System.Drawing.Size(75, 23);
+            this.btnFilmToevoegen.TabIndex = 3;
+            this.btnFilmToevoegen.Text = "Toevoegen";
+            this.btnFilmToevoegen.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txtFilm
             // 
-            this.textBox2.Location = new System.Drawing.Point(326, 64);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(251, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtFilm.Location = new System.Drawing.Point(326, 64);
+            this.txtFilm.Name = "txtFilm";
+            this.txtFilm.Size = new System.Drawing.Size(251, 20);
+            this.txtFilm.TabIndex = 4;
             // 
-            // label2
+            // lblFilm
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(285, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "label2";
+            this.lblFilm.AutoSize = true;
+            this.lblFilm.Location = new System.Drawing.Point(285, 67);
+            this.lblFilm.Name = "lblFilm";
+            this.lblFilm.Size = new System.Drawing.Size(25, 13);
+            this.lblFilm.TabIndex = 5;
+            this.lblFilm.Text = "Film";
             // 
-            // textBox3
+            // btnAfsluiten
             // 
-            this.textBox3.Location = new System.Drawing.Point(477, 145);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
+            this.btnAfsluiten.Location = new System.Drawing.Point(502, 370);
+            this.btnAfsluiten.Name = "btnAfsluiten";
+            this.btnAfsluiten.Size = new System.Drawing.Size(75, 23);
+            this.btnAfsluiten.TabIndex = 8;
+            this.btnAfsluiten.Text = "Afsluiten";
+            this.btnAfsluiten.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // btnVerwerken
             // 
-            this.textBox4.Location = new System.Drawing.Point(477, 171);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 7;
+            this.btnVerwerken.Location = new System.Drawing.Point(421, 370);
+            this.btnVerwerken.Name = "btnVerwerken";
+            this.btnVerwerken.Size = new System.Drawing.Size(75, 23);
+            this.btnVerwerken.TabIndex = 9;
+            this.btnVerwerken.Text = "Verwerken";
+            this.btnVerwerken.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // cbxKorting
             // 
-            this.button2.Location = new System.Drawing.Point(502, 370);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cbxKorting.AutoSize = true;
+            this.cbxKorting.Location = new System.Drawing.Point(288, 201);
+            this.cbxKorting.Name = "cbxKorting";
+            this.cbxKorting.Size = new System.Drawing.Size(59, 17);
+            this.cbxKorting.TabIndex = 10;
+            this.cbxKorting.Text = "Korting";
+            this.cbxKorting.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // lblVolwassenen
             // 
-            this.button3.Location = new System.Drawing.Point(421, 370);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.lblVolwassenen.AutoSize = true;
+            this.lblVolwassenen.Location = new System.Drawing.Point(285, 148);
+            this.lblVolwassenen.Name = "lblVolwassenen";
+            this.lblVolwassenen.Size = new System.Drawing.Size(70, 13);
+            this.lblVolwassenen.TabIndex = 11;
+            this.lblVolwassenen.Text = "Volwassenen";
             // 
-            // checkBox1
+            // lblKinderen
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(288, 201);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 10;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.lblKinderen.AutoSize = true;
+            this.lblKinderen.Location = new System.Drawing.Point(285, 174);
+            this.lblKinderen.Name = "lblKinderen";
+            this.lblKinderen.Size = new System.Drawing.Size(49, 13);
+            this.lblKinderen.TabIndex = 12;
+            this.lblKinderen.Text = "Kinderen";
             // 
-            // label3
+            // lblTotalePrijs
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(285, 148);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "label3";
+            this.lblTotalePrijs.AutoSize = true;
+            this.lblTotalePrijs.Location = new System.Drawing.Point(285, 275);
+            this.lblTotalePrijs.Name = "lblTotalePrijs";
+            this.lblTotalePrijs.Size = new System.Drawing.Size(58, 13);
+            this.lblTotalePrijs.TabIndex = 13;
+            this.lblTotalePrijs.Text = "Totale prijs";
             // 
-            // label4
+            // lblCinemax
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(285, 174);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "label4";
+            this.lblCinemax.AutoSize = true;
+            this.lblCinemax.Location = new System.Drawing.Point(9, 9);
+            this.lblCinemax.Name = "lblCinemax";
+            this.lblCinemax.Size = new System.Drawing.Size(47, 13);
+            this.lblCinemax.TabIndex = 15;
+            this.lblCinemax.Text = "Cinemax";
             // 
-            // label5
+            // txtPrijs
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(285, 275);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "label5";
+            this.txtPrijs.Location = new System.Drawing.Point(477, 272);
+            this.txtPrijs.Name = "txtPrijs";
+            this.txtPrijs.Size = new System.Drawing.Size(100, 20);
+            this.txtPrijs.TabIndex = 16;
             // 
-            // label6
+            // numKinderen
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(542, 275);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "label6";
+            this.numKinderen.Location = new System.Drawing.Point(457, 172);
+            this.numKinderen.Name = "numKinderen";
+            this.numKinderen.Size = new System.Drawing.Size(120, 20);
+            this.numKinderen.TabIndex = 17;
+            // 
+            // numVolwassenen
+            // 
+            this.numVolwassenen.Location = new System.Drawing.Point(457, 146);
+            this.numVolwassenen.Name = "numVolwassenen";
+            this.numVolwassenen.Size = new System.Drawing.Size(120, 20);
+            this.numVolwassenen.TabIndex = 18;
             // 
             // FrmKassa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 405);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.numVolwassenen);
+            this.Controls.Add(this.numKinderen);
+            this.Controls.Add(this.txtPrijs);
+            this.Controls.Add(this.lblCinemax);
+            this.Controls.Add(this.lblTotalePrijs);
+            this.Controls.Add(this.lblKinderen);
+            this.Controls.Add(this.lblVolwassenen);
+            this.Controls.Add(this.cbxKorting);
+            this.Controls.Add(this.btnVerwerken);
+            this.Controls.Add(this.btnAfsluiten);
+            this.Controls.Add(this.lblFilm);
+            this.Controls.Add(this.txtFilm);
+            this.Controls.Add(this.btnFilmToevoegen);
+            this.Controls.Add(this.lblFilmToevoegen);
+            this.Controls.Add(this.txtFilmToevoegen);
+            this.Controls.Add(this.lboxSelectieLijst);
             this.Name = "FrmKassa";
             this.Text = "Cinemax Kassa";
+            ((System.ComponentModel.ISupportInitialize)(this.numKinderen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVolwassenen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,21 +214,22 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox lboxSelectieLijst;
+        private System.Windows.Forms.TextBox txtFilmToevoegen;
+        private System.Windows.Forms.Label lblFilmToevoegen;
+        private System.Windows.Forms.Button btnFilmToevoegen;
+        private System.Windows.Forms.TextBox txtFilm;
+        private System.Windows.Forms.Label lblFilm;
+        private System.Windows.Forms.Button btnAfsluiten;
+        private System.Windows.Forms.Button btnVerwerken;
+        private System.Windows.Forms.CheckBox cbxKorting;
+        private System.Windows.Forms.Label lblVolwassenen;
+        private System.Windows.Forms.Label lblKinderen;
+        private System.Windows.Forms.Label lblTotalePrijs;
+        private System.Windows.Forms.Label lblCinemax;
+        private System.Windows.Forms.TextBox txtPrijs;
+        private System.Windows.Forms.NumericUpDown numKinderen;
+        private System.Windows.Forms.NumericUpDown numVolwassenen;
     }
 }
 
