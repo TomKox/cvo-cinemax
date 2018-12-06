@@ -53,5 +53,10 @@ namespace TomKox_Cinemax
                 txtFilmToevoegen.Text = String.Empty;
             }
         }
+
+        private void lboxSelectieLijst_SelectedValueChanged(object sender, EventArgs e)
+        {
+            txtFilm.Text = lboxSelectieLijst.Text;
+        }
     }
 }

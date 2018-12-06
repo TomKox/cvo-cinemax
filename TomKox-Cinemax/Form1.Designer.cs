@@ -55,6 +55,7 @@
             this.lboxSelectieLijst.Name = "lboxSelectieLijst";
             this.lboxSelectieLijst.Size = new System.Drawing.Size(246, 264);
             this.lboxSelectieLijst.TabIndex = 0;
+            this.lboxSelectieLijst.SelectedValueChanged += new System.EventHandler(this.lboxSelectieLijst_SelectedValueChanged);
             // 
             // txtFilmToevoegen
             // 
