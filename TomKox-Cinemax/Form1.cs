@@ -28,6 +28,7 @@ namespace TomKox_Cinemax
         private void btnFilmToevoegen_Click(object sender, EventArgs e)
         {
             AddFilm(txtFilmToevoegen.Text);
+            txtFilmToevoegen.Text = String.Empty;
         }
 
         private void AddFilm(string film)
@@ -41,6 +42,15 @@ namespace TomKox_Cinemax
             // Enkel nieuwe films toevoegen
             if(!lboxSelectieLijst.Items.Contains(film)) { 
                 lboxSelectieLijst.Items.Add(film);
+            }
+        }
+
+        private void txtFilmToevoegen_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                AddFilm(txtFilmToevoegen.Text);
+                txtFilmToevoegen.Text = String.Empty;
             }
         }
     }
