@@ -25,6 +25,9 @@ namespace TomKox_Cinemax
             AddFilm("Divergent");
             AddFilm("First Man");
             AddFilm("Godzilla");
+            AddFilm("Spiderman 2");
+            AddFilm("Noah");
+            AddFilm("Rio 2");
 
             //Standaardprijzen en korting instellen
             prijsVolwassen = 9M;
