@@ -184,6 +184,7 @@
             this.btnSluiten.TabIndex = 11;
             this.btnSluiten.Text = "Sluiten";
             this.btnSluiten.UseVisualStyleBackColor = true;
+            this.btnSluiten.Click += new System.EventHandler(this.btnSluiten_Click);
             // 
             // FrmTransactie
             // 
