@@ -58,10 +58,11 @@ namespace TomKox_Cinemax
             // Controle op lege strings
             if (film == string.Empty) return;
 
-            // Extra controle op mogelijke vergissingen rond hoofdletters
+            // Extra controle op mogelijke vergissingen rond hoofdletters en spaties
             foreach(string gekendeFilm in lboxSelectieLijst.Items)
             {
-                if(film.ToLower() == gekendeFilm.ToLower() && film != gekendeFilm)
+                if(RemoveSpaces(film.ToLower()) == RemoveSpaces(gekendeFilm.ToLower())
+                    && film != gekendeFilm)
                 {
                     string message = "De lijst bevat al een gelijkaardige titel." + Environment.NewLine
                         + "Wilt u deze toch toevoegen?";
@@ -128,6 +129,21 @@ namespace TomKox_Cinemax
             transactie.SetTotaal(totaal);
             transactie.DisplayTransaction();
             transactie.Show();
+        }
+
+        // Hulpmethode om spaties uit strings te halen.
+        private string RemoveSpaces(string text)
+        {
+            string zonderSpaties = "";
+
+            foreach(char c in text)
+            {
+                if(c != ' ')
+                {
+                    zonderSpaties += c;
+                }
+            }
+            return zonderSpaties;
         }
 
         private void UpdatePrijs()
