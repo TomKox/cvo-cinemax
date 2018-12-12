@@ -49,6 +49,25 @@ namespace TomKox_Cinemax
             // Controle op lege strings
             if (film == string.Empty) return;
 
+            // Extra controle op mogelijke vergissingen rond hoofdletters
+            foreach(string gekendeFilm in lboxSelectieLijst.Items)
+            {
+                if(film.ToLower() == gekendeFilm.ToLower() && film != gekendeFilm)
+                {
+                    string message = "De lijst bevat al een gelijkaardige titel." + Environment.NewLine
+                        + "Wilt u deze toch toevoegen?";
+                    string messageTitle = "Gelijkaardige titel gevonden";
+                    if (MessageBox.Show(message,
+                        messageTitle,
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                        ) == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+            }
+
             // Enkel nieuwe films toevoegen
             if(!lboxSelectieLijst.Items.Contains(film)) { 
                 lboxSelectieLijst.Items.Add(film);
