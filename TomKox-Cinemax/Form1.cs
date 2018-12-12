@@ -29,10 +29,13 @@ namespace TomKox_Cinemax
             AddFilm("Noah");
             AddFilm("Rio 2");
 
-            //Standaardprijzen en korting instellen
+            // Standaardprijzen en korting instellen
             prijsVolwassen = 9M;
             prijsKind = 7.50M;
             korting = 1M;
+
+            // Initiële call van UpdatePrijs om bedrag = 0 in te vullen
+            UpdatePrijs();
         }
 
         private void btnFilmToevoegen_Click(object sender, EventArgs e)
@@ -60,8 +63,7 @@ namespace TomKox_Cinemax
                     if (MessageBox.Show(message,
                         messageTitle,
                         MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question
-                        ) == DialogResult.No)
+                        MessageBoxIcon.Question) == DialogResult.No)
                     {
                         return;
                     }
@@ -86,6 +88,8 @@ namespace TomKox_Cinemax
         private void lboxSelectieLijst_SelectedValueChanged(object sender, EventArgs e)
         {
             txtFilm.Text = lboxSelectieLijst.Text;
+            // Call van UpdatePrijs om btnVerwerken te activeren indien nodig
+            UpdatePrijs();
         }
 
         private void numVolwassenen_ValueChanged(object sender, EventArgs e)
@@ -110,15 +114,19 @@ namespace TomKox_Cinemax
 
         private void UpdatePrijs()
         {
-            decimal totaal;
+            decimal totaal = 0;
             int aantalVolwassenen = Convert.ToInt32(numVolwassenen.Value);
             int aantalKinderen = Convert.ToInt32(numKinderen.Value);
+
+            // btnVerwerken standaard uitschakelen
+            btnVerwerken.Enabled = false;
 
             // Totaal berekenen
             totaal = aantalKinderen * prijsKind + aantalVolwassenen * prijsVolwassen;
 
             // Korting toepassing indien nodig
-            if(cbxKorting.Checked)
+            // Bedrag < 0 niet mogelijk
+            if(cbxKorting.Checked && totaal > 0)
             {
                 totaal -= korting;
             }
@@ -128,6 +136,13 @@ namespace TomKox_Cinemax
 
             // Tekstveld Prijs updaten
             txtPrijs.Text = "€ "+ totaal.ToString();
+
+            // btnVerwkeren inschakelen wanneer prijs > 0
+            // en film ingevuld
+            if(totaal > 0 && txtFilm.Text != "")
+            {
+                btnVerwerken.Enabled = true;
+            }
         }
     }
 }

@@ -112,6 +112,7 @@
             // 
             // btnVerwerken
             // 
+            this.btnVerwerken.Enabled = false;
             this.btnVerwerken.Location = new System.Drawing.Point(421, 370);
             this.btnVerwerken.Name = "btnVerwerken";
             this.btnVerwerken.Size = new System.Drawing.Size(75, 23);
