@@ -163,9 +163,10 @@
             // lblCinemax
             // 
             this.lblCinemax.AutoSize = true;
+            this.lblCinemax.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCinemax.Location = new System.Drawing.Point(9, 9);
             this.lblCinemax.Name = "lblCinemax";
-            this.lblCinemax.Size = new System.Drawing.Size(47, 13);
+            this.lblCinemax.Size = new System.Drawing.Size(149, 37);
             this.lblCinemax.TabIndex = 15;
             this.lblCinemax.Text = "Cinemax";
             // 
