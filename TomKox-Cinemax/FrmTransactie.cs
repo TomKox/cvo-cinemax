@@ -16,5 +16,15 @@ namespace TomKox_Cinemax
         {
             InitializeComponent();
         }
+
+        public void displayTransaction()
+        {
+            
+        }
+
+        private void FrmTransactie_Load(object sender, EventArgs e)
+        {
+            lblTitle.Text = "Transactie geslaagd!";
+        }
     }
 }

@@ -114,7 +114,8 @@ namespace TomKox_Cinemax
 
         private void btnVerwerken_Click(object sender, EventArgs e)
         {
-
+            Form transactie = new FrmTransactie();
+            transactie.Show();
         }
 
         private void UpdatePrijs()
