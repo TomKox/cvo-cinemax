@@ -12,7 +12,13 @@ namespace TomKox_Cinemax
 {
     public partial class FrmKassa : Form
     {
+        // prijzen en korting
         private decimal prijsVolwassen, prijsKind, korting;
+
+        // keuzes en totalen
+        private int aantalVolwassenen, aantalKinderen;
+        decimal totaal;
+        bool kortingJaNee;
 
         public FrmKassa()
         {
@@ -114,15 +120,21 @@ namespace TomKox_Cinemax
 
         private void btnVerwerken_Click(object sender, EventArgs e)
         {
-            Form transactie = new FrmTransactie();
+            FrmTransactie transactie = new FrmTransactie();
+            transactie.SetFilm(txtFilm.Text);
+            transactie.SetVolwassenen(aantalVolwassenen);
+            transactie.SetKinderen(aantalKinderen);
+            transactie.SetKorting(kortingJaNee);
+            transactie.SetTotaal(totaal);
+            transactie.DisplayTransaction();
             transactie.Show();
         }
 
         private void UpdatePrijs()
         {
-            decimal totaal = 0;
-            int aantalVolwassenen = Convert.ToInt32(numVolwassenen.Value);
-            int aantalKinderen = Convert.ToInt32(numKinderen.Value);
+            totaal = 0;
+            aantalVolwassenen = Convert.ToInt32(numVolwassenen.Value);
+            aantalKinderen = Convert.ToInt32(numKinderen.Value);
 
             // btnVerwerken standaard uitschakelen
             btnVerwerken.Enabled = false;
@@ -132,7 +144,8 @@ namespace TomKox_Cinemax
 
             // Korting toepassing indien nodig
             // Bedrag < 0 niet mogelijk
-            if(cbxKorting.Checked && totaal > 0)
+            kortingJaNee = cbxKorting.Checked;
+            if (kortingJaNee && totaal > 0)
             {
                 totaal -= korting;
             }
