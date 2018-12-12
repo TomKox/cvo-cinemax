@@ -107,6 +107,11 @@ namespace TomKox_Cinemax
             UpdatePrijs();
         }
 
+        private void btnAfsluiten_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void btnVerwerken_Click(object sender, EventArgs e)
         {
 

@@ -109,6 +109,7 @@
             this.btnAfsluiten.TabIndex = 8;
             this.btnAfsluiten.Text = "Afsluiten";
             this.btnAfsluiten.UseVisualStyleBackColor = true;
+            this.btnAfsluiten.Click += new System.EventHandler(this.btnAfsluiten_Click);
             // 
             // btnVerwerken
             // 
