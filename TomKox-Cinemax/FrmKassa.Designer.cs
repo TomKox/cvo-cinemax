@@ -50,6 +50,7 @@
             this.grpSupplementen = new System.Windows.Forms.GroupBox();
             this.cbox3D = new System.Windows.Forms.CheckBox();
             this.cboxLangeFilm = new System.Windows.Forms.CheckBox();
+            this.txtAndereKorting = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numKinderen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numVolwassenen)).BeginInit();
             this.grpKortingen.SuspendLayout();
@@ -196,6 +197,7 @@
             // 
             // grpKortingen
             // 
+            this.grpKortingen.Controls.Add(this.txtAndereKorting);
             this.grpKortingen.Controls.Add(this.cboxCustomKorting);
             this.grpKortingen.Controls.Add(this.cboxGroepsKorting);
             this.grpKortingen.Controls.Add(this.cboxSchoolKorting);
@@ -267,6 +269,13 @@
             this.cboxLangeFilm.Text = "Lange film";
             this.cboxLangeFilm.UseVisualStyleBackColor = true;
             // 
+            // txtAndereKorting
+            // 
+            this.txtAndereKorting.Location = new System.Drawing.Point(6, 88);
+            this.txtAndereKorting.Name = "txtAndereKorting";
+            this.txtAndereKorting.Size = new System.Drawing.Size(128, 20);
+            this.txtAndereKorting.TabIndex = 24;
+            // 
             // FrmKassa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,6 +336,7 @@
         private System.Windows.Forms.GroupBox grpSupplementen;
         private System.Windows.Forms.CheckBox cboxLangeFilm;
         private System.Windows.Forms.CheckBox cbox3D;
+        private System.Windows.Forms.TextBox txtAndereKorting;
     }
 }
 
