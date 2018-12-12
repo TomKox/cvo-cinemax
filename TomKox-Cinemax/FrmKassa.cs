@@ -13,12 +13,12 @@ namespace TomKox_Cinemax
     public partial class FrmKassa : Form
     {
         // prijzen en korting
-        private decimal prijsVolwassen, prijsKind, korting;
+        private decimal prijsVolwassen, prijsKind, supplement3D, supplementLang, schoolKortingPCT, groepsKortingPCT;
 
         // keuzes en totalen
         private int aantalVolwassenen, aantalKinderen;
         decimal totaal;
-        bool kortingJaNee;
+
 
         public FrmKassa()
         {
@@ -38,7 +38,10 @@ namespace TomKox_Cinemax
             // Standaardprijzen en korting instellen
             prijsVolwassen = 9M;
             prijsKind = 7.50M;
-            korting = 1M;
+            supplement3D = 2M;
+            supplementLang = 1.50M;
+            schoolKortingPCT = 15; // Percent
+            groepsKortingPCT = 10; // Percent
 
             // Initiële call van UpdatePrijs om bedrag = 0 in te vullen
             UpdatePrijs();
@@ -102,21 +105,61 @@ namespace TomKox_Cinemax
         private void numVolwassenen_ValueChanged(object sender, EventArgs e)
         {
             UpdatePrijs();
+            CheckKortingen();
         }
 
         private void numKinderen_ValueChanged(object sender, EventArgs e)
         {
             UpdatePrijs();
+            CheckKortingen();
         }
 
-        private void cbxKorting_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdatePrijs();
-        }
+        //private void cbxKorting_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    UpdatePrijs();
+        //}
 
         private void btnAfsluiten_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cboxSchoolKorting_CheckedChanged(object sender, EventArgs e)
+        {
+            // Groepskorting en schoolkorting niet tegelijk mogelijk
+            if(cboxSchoolKorting.Checked)
+            {
+                cboxGroepsKorting.Checked = false;
+            }
+        }
+
+        private void cboxGroepsKorting_CheckedChanged(object sender, EventArgs e)
+        {
+            // Schoolkorting en groepskorting niet tegelijk mogelijk
+            if(cboxGroepsKorting.Checked)
+            {
+                cboxSchoolKorting.Checked = false;
+            }
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void cboxCustomKorting_CheckedChanged(object sender, EventArgs e)
+        {
+            // Textbox andere korting activeren wanneer checkbox aangevinkt
+            if(cboxCustomKorting.Checked)
+            {
+                lblEuro.Enabled = true;
+                mtxtCustomKorting.Enabled = true;
+            }
+            else
+            {
+                lblEuro.Enabled = false;
+                mtxtCustomKorting.Enabled = false;
+            }
         }
 
         private void btnVerwerken_Click(object sender, EventArgs e)
@@ -125,10 +168,10 @@ namespace TomKox_Cinemax
             transactie.SetFilm(txtFilm.Text);
             transactie.SetVolwassenen(aantalVolwassenen);
             transactie.SetKinderen(aantalKinderen);
-            transactie.SetKorting(kortingJaNee);
+            transactie.SetKorting(true);
             transactie.SetTotaal(totaal);
             transactie.DisplayTransaction();
-            transactie.Show();
+            transactie.ShowDialog();
         }
 
         // Hulpmethode om spaties uit strings te halen.
@@ -160,11 +203,11 @@ namespace TomKox_Cinemax
 
             // Korting toepassing indien nodig
             // Bedrag < 0 niet mogelijk
-            kortingJaNee = cbxKorting.Checked;
+            /*  kortingJaNee = cbxKorting.Checked;
             if (kortingJaNee && totaal > 0)
             {
                 totaal -= korting;
-            }
+            } **/
 
             // Geldbedrag afronden op 2 decimalen
             Math.Round(totaal, 2);
@@ -177,6 +220,30 @@ namespace TomKox_Cinemax
             if(totaal > 0 && txtFilm.Text != "")
             {
                 btnVerwerken.Enabled = true;
+            }
+        }
+
+        private void CheckKortingen()
+        {
+            // Groepskorting enkel vanaf 10 volwassenen
+            if(numVolwassenen.Value > 9)
+            {
+                cboxGroepsKorting.Enabled = true;
+            } 
+            else
+            {
+                cboxGroepsKorting.Enabled = false;
+                cboxGroepsKorting.Checked = false;
+            }
+
+            if(numKinderen.Value > 14)
+            {
+                cboxSchoolKorting.Enabled = true;
+            }
+            else
+            {
+                cboxSchoolKorting.Enabled = false;
+                cboxSchoolKorting.Checked = false;
             }
         }
     }

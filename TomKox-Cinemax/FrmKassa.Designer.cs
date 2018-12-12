@@ -44,13 +44,14 @@
             this.numKinderen = new System.Windows.Forms.NumericUpDown();
             this.numVolwassenen = new System.Windows.Forms.NumericUpDown();
             this.grpKortingen = new System.Windows.Forms.GroupBox();
-            this.cboxSchoolKorting = new System.Windows.Forms.CheckBox();
-            this.cboxGroepsKorting = new System.Windows.Forms.CheckBox();
             this.cboxCustomKorting = new System.Windows.Forms.CheckBox();
+            this.cboxGroepsKorting = new System.Windows.Forms.CheckBox();
+            this.cboxSchoolKorting = new System.Windows.Forms.CheckBox();
             this.grpSupplementen = new System.Windows.Forms.GroupBox();
-            this.cbox3D = new System.Windows.Forms.CheckBox();
             this.cboxLangeFilm = new System.Windows.Forms.CheckBox();
-            this.txtAndereKorting = new System.Windows.Forms.TextBox();
+            this.cbox3D = new System.Windows.Forms.CheckBox();
+            this.mtxtCustomKorting = new System.Windows.Forms.MaskedTextBox();
+            this.lblEuro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numKinderen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numVolwassenen)).BeginInit();
             this.grpKortingen.SuspendLayout();
@@ -197,7 +198,8 @@
             // 
             // grpKortingen
             // 
-            this.grpKortingen.Controls.Add(this.txtAndereKorting);
+            this.grpKortingen.Controls.Add(this.lblEuro);
+            this.grpKortingen.Controls.Add(this.mtxtCustomKorting);
             this.grpKortingen.Controls.Add(this.cboxCustomKorting);
             this.grpKortingen.Controls.Add(this.cboxGroepsKorting);
             this.grpKortingen.Controls.Add(this.cboxSchoolKorting);
@@ -208,26 +210,6 @@
             this.grpKortingen.TabStop = false;
             this.grpKortingen.Text = "Kortingen";
             // 
-            // cboxSchoolKorting
-            // 
-            this.cboxSchoolKorting.AutoSize = true;
-            this.cboxSchoolKorting.Location = new System.Drawing.Point(6, 19);
-            this.cboxSchoolKorting.Name = "cboxSchoolKorting";
-            this.cboxSchoolKorting.Size = new System.Drawing.Size(91, 17);
-            this.cboxSchoolKorting.TabIndex = 20;
-            this.cboxSchoolKorting.Text = "Schoolkorting";
-            this.cboxSchoolKorting.UseVisualStyleBackColor = true;
-            // 
-            // cboxGroepsKorting
-            // 
-            this.cboxGroepsKorting.AutoSize = true;
-            this.cboxGroepsKorting.Location = new System.Drawing.Point(6, 42);
-            this.cboxGroepsKorting.Name = "cboxGroepsKorting";
-            this.cboxGroepsKorting.Size = new System.Drawing.Size(92, 17);
-            this.cboxGroepsKorting.TabIndex = 21;
-            this.cboxGroepsKorting.Text = "Groepskorting";
-            this.cboxGroepsKorting.UseVisualStyleBackColor = true;
-            // 
             // cboxCustomKorting
             // 
             this.cboxCustomKorting.AutoSize = true;
@@ -237,6 +219,31 @@
             this.cboxCustomKorting.TabIndex = 22;
             this.cboxCustomKorting.Text = "Andere korting:";
             this.cboxCustomKorting.UseVisualStyleBackColor = true;
+            this.cboxCustomKorting.CheckedChanged += new System.EventHandler(this.cboxCustomKorting_CheckedChanged);
+            // 
+            // cboxGroepsKorting
+            // 
+            this.cboxGroepsKorting.AutoSize = true;
+            this.cboxGroepsKorting.Enabled = false;
+            this.cboxGroepsKorting.Location = new System.Drawing.Point(6, 42);
+            this.cboxGroepsKorting.Name = "cboxGroepsKorting";
+            this.cboxGroepsKorting.Size = new System.Drawing.Size(92, 17);
+            this.cboxGroepsKorting.TabIndex = 21;
+            this.cboxGroepsKorting.Text = "Groepskorting";
+            this.cboxGroepsKorting.UseVisualStyleBackColor = true;
+            this.cboxGroepsKorting.CheckedChanged += new System.EventHandler(this.cboxGroepsKorting_CheckedChanged);
+            // 
+            // cboxSchoolKorting
+            // 
+            this.cboxSchoolKorting.AutoSize = true;
+            this.cboxSchoolKorting.Enabled = false;
+            this.cboxSchoolKorting.Location = new System.Drawing.Point(6, 19);
+            this.cboxSchoolKorting.Name = "cboxSchoolKorting";
+            this.cboxSchoolKorting.Size = new System.Drawing.Size(91, 17);
+            this.cboxSchoolKorting.TabIndex = 20;
+            this.cboxSchoolKorting.Text = "Schoolkorting";
+            this.cboxSchoolKorting.UseVisualStyleBackColor = true;
+            this.cboxSchoolKorting.CheckedChanged += new System.EventHandler(this.cboxSchoolKorting_CheckedChanged);
             // 
             // grpSupplementen
             // 
@@ -249,16 +256,6 @@
             this.grpSupplementen.TabStop = false;
             this.grpSupplementen.Text = "Supplementen";
             // 
-            // cbox3D
-            // 
-            this.cbox3D.AutoSize = true;
-            this.cbox3D.Location = new System.Drawing.Point(6, 19);
-            this.cbox3D.Name = "cbox3D";
-            this.cbox3D.Size = new System.Drawing.Size(58, 17);
-            this.cbox3D.TabIndex = 0;
-            this.cbox3D.Text = "3D film";
-            this.cbox3D.UseVisualStyleBackColor = true;
-            // 
             // cboxLangeFilm
             // 
             this.cboxLangeFilm.AutoSize = true;
@@ -269,12 +266,35 @@
             this.cboxLangeFilm.Text = "Lange film";
             this.cboxLangeFilm.UseVisualStyleBackColor = true;
             // 
-            // txtAndereKorting
+            // cbox3D
             // 
-            this.txtAndereKorting.Location = new System.Drawing.Point(6, 88);
-            this.txtAndereKorting.Name = "txtAndereKorting";
-            this.txtAndereKorting.Size = new System.Drawing.Size(128, 20);
-            this.txtAndereKorting.TabIndex = 24;
+            this.cbox3D.AutoSize = true;
+            this.cbox3D.Location = new System.Drawing.Point(6, 19);
+            this.cbox3D.Name = "cbox3D";
+            this.cbox3D.Size = new System.Drawing.Size(58, 17);
+            this.cbox3D.TabIndex = 0;
+            this.cbox3D.Text = "3D film";
+            this.cbox3D.UseVisualStyleBackColor = true;
+            // 
+            // mtxtCustomKorting
+            // 
+            this.mtxtCustomKorting.Enabled = false;
+            this.mtxtCustomKorting.Location = new System.Drawing.Point(84, 88);
+            this.mtxtCustomKorting.Mask = "9999.99";
+            this.mtxtCustomKorting.Name = "mtxtCustomKorting";
+            this.mtxtCustomKorting.Size = new System.Drawing.Size(50, 20);
+            this.mtxtCustomKorting.TabIndex = 23;
+            this.mtxtCustomKorting.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            // 
+            // lblEuro
+            // 
+            this.lblEuro.AutoSize = true;
+            this.lblEuro.Enabled = false;
+            this.lblEuro.Location = new System.Drawing.Point(65, 91);
+            this.lblEuro.Name = "lblEuro";
+            this.lblEuro.Size = new System.Drawing.Size(13, 13);
+            this.lblEuro.TabIndex = 24;
+            this.lblEuro.Text = "€";
             // 
             // FrmKassa
             // 
@@ -336,7 +356,8 @@
         private System.Windows.Forms.GroupBox grpSupplementen;
         private System.Windows.Forms.CheckBox cboxLangeFilm;
         private System.Windows.Forms.CheckBox cbox3D;
-        private System.Windows.Forms.TextBox txtAndereKorting;
+        private System.Windows.Forms.MaskedTextBox mtxtCustomKorting;
+        private System.Windows.Forms.Label lblEuro;
     }
 }
 
