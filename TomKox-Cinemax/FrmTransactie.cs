@@ -31,7 +31,7 @@ namespace TomKox_Cinemax
             lblAantalKinderen.Text = kinderen.ToString();
             if (korting) lblKortingJaNee.Text = "Ja";
             if (!korting) lblKortingJaNee.Text = "Nee";
-            lblPrijsTotaal.Text = totaal.ToString();
+            lblPrijsTotaal.Text = "€ " + totaal.ToString();
         }
 
         public void SetFilm(string film)
@@ -57,6 +57,11 @@ namespace TomKox_Cinemax
         public void SetTotaal(decimal d)
         {
             this.totaal = d;
+        }
+
+        private void btnSluiten_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void FrmTransactie_Load(object sender, EventArgs e)
