@@ -175,7 +175,7 @@ namespace TomKox_Cinemax
             // Tekstveld Prijs updaten
             txtPrijs.Text = "€ "+ totaal.ToString();
 
-            // btnVerwkeren inschakelen wanneer prijs > 0
+            // btnVerwerken inschakelen wanneer prijs > 0
             // en film ingevuld
             if(totaal > 0 && txtFilm.Text != "")
             {
