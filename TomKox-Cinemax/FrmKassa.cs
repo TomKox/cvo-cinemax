@@ -128,7 +128,7 @@ namespace TomKox_Cinemax
             transactie.SetKorting(kortingJaNee);
             transactie.SetTotaal(totaal);
             transactie.DisplayTransaction();
-            transactie.Show();
+            transactie.ShowDialog();
         }
 
         // Hulpmethode om spaties uit strings te halen.
