@@ -1,4 +1,6 @@
-﻿using System;
+﻿// GitHub Repository voor dit project: https://github.com/TomKox/cvo-cinemax
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,8 +42,8 @@ namespace TomKox_Cinemax
             prijsKind = 7.50M;
             korting = 1M;
 
-            // Initiële call van UpdatePrijs om bedrag = 0 in te vullen
-            UpdatePrijs();
+            // Initiële call van ResetKassa om bedrag = 0 in te vullen
+            ResetKassa();
         }
 
         private void btnFilmToevoegen_Click(object sender, EventArgs e)
@@ -129,6 +131,7 @@ namespace TomKox_Cinemax
             transactie.SetTotaal(totaal);
             transactie.DisplayTransaction();
             transactie.ShowDialog();
+            ResetKassa();
         }
 
         // Hulpmethode om spaties uit strings te halen.
@@ -178,6 +181,17 @@ namespace TomKox_Cinemax
             {
                 btnVerwerken.Enabled = true;
             }
+        }
+
+        public void ResetKassa()
+        {
+            lboxSelectieLijst.ClearSelected();
+            txtFilm.Text = "";
+            txtFilmToevoegen.Text = "";
+            numKinderen.Value = 0;
+            numVolwassenen.Value = 0;
+            cbxKorting.Checked = false;
+            UpdatePrijs();
         }
     }
 }
