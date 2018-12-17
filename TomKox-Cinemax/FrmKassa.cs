@@ -170,7 +170,14 @@ namespace TomKox_Cinemax
             transactie.SetFilm(txtFilm.Text);
             transactie.SetVolwassenen(aantalVolwassenen);
             transactie.SetKinderen(aantalKinderen);
-            transactie.SetKorting(true);
+
+            if (cboxSchoolKorting.Checked) transactie.AddKorting("Schoolkorting");
+            if (cboxGroepsKorting.Checked) transactie.AddKorting("Groepskorting");
+            if (cboxCustomKorting.Checked) transactie.AddKorting("Andere: " + mtxtCustomKorting.Text);
+
+            if (cbox3D.Checked) transactie.AddSupplement("3D Film");
+            if (cboxLangeFilm.Checked) transactie.AddSupplement("Lange film");
+
             transactie.SetTotaal(totaal);
             transactie.DisplayTransaction();
             transactie.ShowDialog();
@@ -229,17 +236,17 @@ namespace TomKox_Cinemax
         private void CheckKortingen()
         {
             // Groepskorting enkel vanaf 10 volwassenen
-            if(numVolwassenen.Value > 9)
+            if (numVolwassenen.Value > 9)
             {
                 cboxGroepsKorting.Enabled = true;
-            } 
+            }
             else
             {
                 cboxGroepsKorting.Enabled = false;
                 cboxGroepsKorting.Checked = false;
             }
 
-            if(numKinderen.Value > 14)
+            if (numKinderen.Value > 14)
             {
                 cboxSchoolKorting.Enabled = true;
             }
@@ -248,6 +255,8 @@ namespace TomKox_Cinemax
                 cboxSchoolKorting.Enabled = false;
                 cboxSchoolKorting.Checked = false;
             }
+        }
+
         public void ResetKassa()
         {
             lboxSelectieLijst.ClearSelected();
@@ -255,7 +264,12 @@ namespace TomKox_Cinemax
             txtFilmToevoegen.Text = "";
             numKinderen.Value = 0;
             numVolwassenen.Value = 0;
-            cbxKorting.Checked = false;
+            cboxSchoolKorting.Checked = false;
+            cboxGroepsKorting.Checked = false;
+            cboxCustomKorting.Checked = false;
+            cbox3D.Checked = false;
+            cboxLangeFilm.Checked = false;
+
             UpdatePrijs();
         }
     }

@@ -14,12 +14,15 @@ namespace TomKox_Cinemax
     {
         private string film;
         private int volwassenen, kinderen;
-        private bool korting;
         private decimal totaal;
+        private List<string> kortingenKeuze;
+        private List<string> supplementenKeuze;
 
         public FrmTransactie()
         {
             InitializeComponent();
+            kortingenKeuze = new List<string>();
+            supplementenKeuze = new List<string>();
         }
 
         // Alle info tonen in de juiste labels
@@ -29,8 +32,27 @@ namespace TomKox_Cinemax
             lblFilmKeuze.Text = film;
             lblAantalVolwassenen.Text = volwassenen.ToString();
             lblAantalKinderen.Text = kinderen.ToString();
-            if (korting) lblKortingJaNee.Text = "Ja";
-            if (!korting) lblKortingJaNee.Text = "Nee";
+            
+            //Kortingen string opbouwen
+            string kortingen = "";
+            foreach(string korting in kortingenKeuze)
+            {
+                kortingen += korting + ", ";
+            }
+            //Laatste ', ' afknippen
+            kortingen = kortingen.Substring(0, kortingen.Length - 2);
+            lblKortingenKeuze.Text = kortingen;
+
+            //Supplementen string opbouwen
+            string supplementen = "";
+            foreach(string supplement in supplementenKeuze)
+            {
+                supplementen += supplement + ", ";
+            }
+            //Laatste ', ' afknippen
+            supplementen = supplementen.Substring(0, supplementen.Length - 2);
+            lblSupplementenKeuze.Text = supplementen;
+
             lblPrijsTotaal.Text = "€ " + totaal.ToString();
         }
 
@@ -49,14 +71,19 @@ namespace TomKox_Cinemax
             this.kinderen = i;
         }
 
-        public void SetKorting(bool korting)
-        {
-            this.korting = korting;
-        }
-
         public void SetTotaal(decimal d)
         {
             this.totaal = d;
+        }
+
+        public void AddKorting(string korting)
+        {
+            kortingenKeuze.Add(korting);
+        }
+
+        public void AddSupplement(string supplement)
+        {
+            supplementenKeuze.Add(supplement);
         }
 
         private void btnSluiten_Click(object sender, EventArgs e)
@@ -69,7 +96,6 @@ namespace TomKox_Cinemax
             SetFilm("");
             SetVolwassenen(0);
             SetKinderen(0);
-            SetKorting(false);
             SetTotaal(0M);
         }
     }
