@@ -1,4 +1,6 @@
-﻿using System;
+﻿// GitHub Repository voor dit project: https://github.com/TomKox/cvo-cinemax
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,8 +45,8 @@ namespace TomKox_Cinemax
             schoolKortingPCT = 15; // Percent
             groepsKortingPCT = 10; // Percent
 
-            // Initiële call van UpdatePrijs om bedrag = 0 in te vullen
-            UpdatePrijs();
+            // Initiële call van ResetKassa om bedrag = 0 in te vullen
+            ResetKassa();
         }
 
         private void btnFilmToevoegen_Click(object sender, EventArgs e)
@@ -172,6 +174,7 @@ namespace TomKox_Cinemax
             transactie.SetTotaal(totaal);
             transactie.DisplayTransaction();
             transactie.ShowDialog();
+            ResetKassa();
         }
 
         // Hulpmethode om spaties uit strings te halen.
@@ -215,7 +218,7 @@ namespace TomKox_Cinemax
             // Tekstveld Prijs updaten
             txtPrijs.Text = "€ "+ totaal.ToString();
 
-            // btnVerwkeren inschakelen wanneer prijs > 0
+            // btnVerwerken inschakelen wanneer prijs > 0
             // en film ingevuld
             if(totaal > 0 && txtFilm.Text != "")
             {
@@ -245,6 +248,15 @@ namespace TomKox_Cinemax
                 cboxSchoolKorting.Enabled = false;
                 cboxSchoolKorting.Checked = false;
             }
+        public void ResetKassa()
+        {
+            lboxSelectieLijst.ClearSelected();
+            txtFilm.Text = "";
+            txtFilmToevoegen.Text = "";
+            numKinderen.Value = 0;
+            numVolwassenen.Value = 0;
+            cbxKorting.Checked = false;
+            UpdatePrijs();
         }
     }
 }
