@@ -39,8 +39,10 @@ namespace TomKox_Cinemax
             {
                 kortingen += korting + ", ";
             }
-            //Laatste ', ' afknippen
-            kortingen = kortingen.Substring(0, kortingen.Length - 2);
+            //Laatste ', ' afknippen, indien nodig
+            if(kortingen.EndsWith(", ")) { 
+                kortingen = kortingen.Substring(0, kortingen.Length - 2);
+            }
             lblKortingenKeuze.Text = kortingen;
 
             //Supplementen string opbouwen
@@ -49,8 +51,10 @@ namespace TomKox_Cinemax
             {
                 supplementen += supplement + ", ";
             }
-            //Laatste ', ' afknippen
-            supplementen = supplementen.Substring(0, supplementen.Length - 2);
+            //Laatste ', ' afknippen, indien nodig
+            if(supplementen.EndsWith(", ")) { 
+                supplementen = supplementen.Substring(0, supplementen.Length - 2);
+            }
             lblSupplementenKeuze.Text = supplementen;
 
             lblPrijsTotaal.Text = "€ " + totaal.ToString();

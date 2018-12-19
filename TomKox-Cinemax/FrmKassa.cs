@@ -15,7 +15,7 @@ namespace TomKox_Cinemax
     public partial class FrmKassa : Form
     {
         // prijzen en korting
-        private decimal prijsVolwassen, prijsKind, supplement3D, supplementLang, schoolKortingPCT, groepsKortingPCT;
+        private decimal prijsVolwassen, prijsKind, supplement3D, supplementLang, schoolKortingPCT, groepsKortingPCT, customKorting;
 
         // keuzes en totalen
         private int aantalVolwassenen, aantalKinderen;
@@ -116,11 +116,6 @@ namespace TomKox_Cinemax
             CheckKortingen();
         }
 
-        //private void cbxKorting_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    UpdatePrijs();
-        //}
-
         private void btnAfsluiten_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -133,6 +128,8 @@ namespace TomKox_Cinemax
             {
                 cboxGroepsKorting.Checked = false;
             }
+
+            UpdatePrijs();
         }
 
         private void cboxGroepsKorting_CheckedChanged(object sender, EventArgs e)
@@ -142,11 +139,23 @@ namespace TomKox_Cinemax
             {
                 cboxSchoolKorting.Checked = false;
             }
+
+            UpdatePrijs();
         }
 
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void cbox3D_CheckedChanged(object sender, EventArgs e)
         {
+            UpdatePrijs();
+        }
 
+        private void cboxLangeFilm_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePrijs();
+        }
+
+        private void mtxtCustomKorting_TextChanged(object sender, EventArgs e)
+        {
+            UpdatePrijs();
         }
 
         private void cboxCustomKorting_CheckedChanged(object sender, EventArgs e)
@@ -161,7 +170,10 @@ namespace TomKox_Cinemax
             {
                 lblEuro.Enabled = false;
                 mtxtCustomKorting.Enabled = false;
+                mtxtCustomKorting.Text = "";
             }
+
+            UpdatePrijs();
         }
 
         private void btnVerwerken_Click(object sender, EventArgs e)
@@ -173,7 +185,7 @@ namespace TomKox_Cinemax
 
             if (cboxSchoolKorting.Checked) transactie.AddKorting("Schoolkorting");
             if (cboxGroepsKorting.Checked) transactie.AddKorting("Groepskorting");
-            if (cboxCustomKorting.Checked) transactie.AddKorting("Andere: " + mtxtCustomKorting.Text);
+            if (cboxCustomKorting.Checked) transactie.AddKorting("Andere: €" + customKorting.ToString());
 
             if (cbox3D.Checked) transactie.AddSupplement("3D Film");
             if (cboxLangeFilm.Checked) transactie.AddSupplement("Lange film");
@@ -205,22 +217,39 @@ namespace TomKox_Cinemax
             aantalVolwassenen = Convert.ToInt32(numVolwassenen.Value);
             aantalKinderen = Convert.ToInt32(numKinderen.Value);
 
+            // Kortingen verwerken
+            decimal kortingPCT = 0M;
+            customKorting = 0M;
+            // Groeps- of schoolkorting
+            if (cboxSchoolKorting.Checked) kortingPCT = this.schoolKortingPCT;
+            if (cboxGroepsKorting.Checked) kortingPCT = this.groepsKortingPCT;
+            // Andere korting
+            if (cboxCustomKorting.Checked)
+            {
+                string ckortTxt = mtxtCustomKorting.Text; // tijdelijke string om conversie te vergemakkelijken
+                ckortTxt = RemoveSpaces(ckortTxt);
+                ckortTxt += "0";
+                customKorting = Convert.ToDecimal(ckortTxt);
+                customKorting = Math.Round(customKorting, 2);
+            }
+
+            // Supplementen verwerken
+            decimal supp3D = 0M, suppLang = 0M;
+            if (cbox3D.Checked) supp3D = this.supplement3D;
+            if (cboxLangeFilm.Checked) suppLang = this.supplementLang;
+
             // btnVerwerken standaard uitschakelen
             btnVerwerken.Enabled = false;
 
             // Totaal berekenen
-            totaal = aantalKinderen * prijsKind + aantalVolwassenen * prijsVolwassen;
+            totaal = aantalKinderen * (prijsKind + supp3D + suppLang) + aantalVolwassenen * (prijsVolwassen + supp3D + suppLang);
 
-            // Korting toepassing indien nodig
-            // Bedrag < 0 niet mogelijk
-            /*  kortingJaNee = cbxKorting.Checked;
-            if (kortingJaNee && totaal > 0)
-            {
-                totaal -= korting;
-            } **/
+            // Kortingen toepassen
+            decimal kortingBedrag = totaal * kortingPCT / 100;
+            totaal = totaal - kortingBedrag - customKorting;
 
             // Geldbedrag afronden op 2 decimalen
-            Math.Round(totaal, 2);
+            totaal = Math.Round(totaal, 2);
 
             // Tekstveld Prijs updaten
             txtPrijs.Text = "€ "+ totaal.ToString();
@@ -246,6 +275,7 @@ namespace TomKox_Cinemax
                 cboxGroepsKorting.Checked = false;
             }
 
+            // Schoolkorting enkel vanaf 15 volwassenen
             if (numKinderen.Value > 14)
             {
                 cboxSchoolKorting.Enabled = true;

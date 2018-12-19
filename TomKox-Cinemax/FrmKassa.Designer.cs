@@ -44,14 +44,14 @@
             this.numKinderen = new System.Windows.Forms.NumericUpDown();
             this.numVolwassenen = new System.Windows.Forms.NumericUpDown();
             this.grpKortingen = new System.Windows.Forms.GroupBox();
+            this.lblEuro = new System.Windows.Forms.Label();
+            this.mtxtCustomKorting = new System.Windows.Forms.MaskedTextBox();
             this.cboxCustomKorting = new System.Windows.Forms.CheckBox();
             this.cboxGroepsKorting = new System.Windows.Forms.CheckBox();
             this.cboxSchoolKorting = new System.Windows.Forms.CheckBox();
             this.grpSupplementen = new System.Windows.Forms.GroupBox();
             this.cboxLangeFilm = new System.Windows.Forms.CheckBox();
             this.cbox3D = new System.Windows.Forms.CheckBox();
-            this.mtxtCustomKorting = new System.Windows.Forms.MaskedTextBox();
-            this.lblEuro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numKinderen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numVolwassenen)).BeginInit();
             this.grpKortingen.SuspendLayout();
@@ -210,6 +210,26 @@
             this.grpKortingen.TabStop = false;
             this.grpKortingen.Text = "Kortingen";
             // 
+            // lblEuro
+            // 
+            this.lblEuro.AutoSize = true;
+            this.lblEuro.Enabled = false;
+            this.lblEuro.Location = new System.Drawing.Point(65, 91);
+            this.lblEuro.Name = "lblEuro";
+            this.lblEuro.Size = new System.Drawing.Size(13, 13);
+            this.lblEuro.TabIndex = 24;
+            this.lblEuro.Text = "€";
+            // 
+            // mtxtCustomKorting
+            // 
+            this.mtxtCustomKorting.Enabled = false;
+            this.mtxtCustomKorting.Location = new System.Drawing.Point(84, 88);
+            this.mtxtCustomKorting.Mask = "9999.99";
+            this.mtxtCustomKorting.Name = "mtxtCustomKorting";
+            this.mtxtCustomKorting.Size = new System.Drawing.Size(50, 20);
+            this.mtxtCustomKorting.TabIndex = 23;
+            this.mtxtCustomKorting.TextChanged += new System.EventHandler(this.mtxtCustomKorting_TextChanged);
+            // 
             // cboxCustomKorting
             // 
             this.cboxCustomKorting.AutoSize = true;
@@ -265,6 +285,7 @@
             this.cboxLangeFilm.TabIndex = 1;
             this.cboxLangeFilm.Text = "Lange film";
             this.cboxLangeFilm.UseVisualStyleBackColor = true;
+            this.cboxLangeFilm.CheckedChanged += new System.EventHandler(this.cboxLangeFilm_CheckedChanged);
             // 
             // cbox3D
             // 
@@ -275,26 +296,7 @@
             this.cbox3D.TabIndex = 0;
             this.cbox3D.Text = "3D film";
             this.cbox3D.UseVisualStyleBackColor = true;
-            // 
-            // mtxtCustomKorting
-            // 
-            this.mtxtCustomKorting.Enabled = false;
-            this.mtxtCustomKorting.Location = new System.Drawing.Point(84, 88);
-            this.mtxtCustomKorting.Mask = "9999.99";
-            this.mtxtCustomKorting.Name = "mtxtCustomKorting";
-            this.mtxtCustomKorting.Size = new System.Drawing.Size(50, 20);
-            this.mtxtCustomKorting.TabIndex = 23;
-            this.mtxtCustomKorting.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
-            // 
-            // lblEuro
-            // 
-            this.lblEuro.AutoSize = true;
-            this.lblEuro.Enabled = false;
-            this.lblEuro.Location = new System.Drawing.Point(65, 91);
-            this.lblEuro.Name = "lblEuro";
-            this.lblEuro.Size = new System.Drawing.Size(13, 13);
-            this.lblEuro.TabIndex = 24;
-            this.lblEuro.Text = "€";
+            this.cbox3D.CheckedChanged += new System.EventHandler(this.cbox3D_CheckedChanged);
             // 
             // FrmKassa
             // 
