@@ -170,7 +170,7 @@ namespace TomKox_Cinemax
             }
 
             // Geldbedrag afronden op 2 decimalen
-            Math.Round(totaal, 2);
+            totaal = Math.Round(totaal, 2);
 
             // Tekstveld Prijs updaten
             txtPrijs.Text = "€ "+ totaal.ToString();
