@@ -275,7 +275,7 @@ namespace TomKox_Cinemax
                 cboxGroepsKorting.Checked = false;
             }
 
-            // Schoolkorting enkel vanaf 15 volwassenen
+            // Schoolkorting enkel vanaf 15 kinderen
             if (numKinderen.Value > 14)
             {
                 cboxSchoolKorting.Enabled = true;
